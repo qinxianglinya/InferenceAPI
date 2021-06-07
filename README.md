@@ -2,7 +2,7 @@
 
 ## 1、框架简介
 
-## 本框架基于TensorRT进行开发，用于部署基于深度学习的目标检测算法，加速模型推理。该框架目前支持三种模型的部署：基于tensorflow的RetinaNet算法、基于Detectron2的RetinaNet算法、基于MMdetection的Yolov3算法。其中前两个算法已经正式落地，投入生产，第三个算法目前只进行了初步的测试，尚未正式投入生产。
+**本框架基于TensorRT进行开发，用于部署基于深度学习的目标检测算法，加速模型推理。该框架目前支持三种模型的部署：基于tensorflow的RetinaNet算法、基于Detectron2的RetinaNet算法、基于MMdetection的Yolov3算法。其中前两个算法已经正式落地，投入生产，第三个算法目前只进行了初步的测试，尚未正式投入生产。**
 
 说明：由于第一次是使用基于Tensorflow的RetinaNet算法进行检测，因此本框架集成的第一个算法便是基于Tensorflow的RetinaNet，后由于Tensorflow可读性不高，对算法做优化比较困难，便采用基于Detectron2的RetinaNet算法做目标检测，本框架集成的第二个算法则是基于Detectron2的RetinaNet。后面考虑Yolov3检测速度和检测性能都要优于RetinaNet，便对Yolov3算法进行了部署，这也是本框架集成的第三个算法。
 
@@ -41,9 +41,11 @@ static bool initEngines(const char* modelName);
 
 **该API自动检测显卡的数量，根据显卡的数量实例化多个Engine对象，用于多GPU调用。**
 
-**参数说明：**const char* modelName: modelName是TensorRT模型的本地路径。
+**参数说明：**
 
-**返回类型：**bool: 如果实例化Engine对象成功，则返回true，否则，返回false。
+- const char* modelName: modelName是TensorRT模型的本地路径。
+
+- 返回类型：bool: 如果实例化Engine对象成功，则返回True，否则，返回False。
 
 **第二个API：**
 
@@ -55,11 +57,11 @@ static bool doInference(imgData::_SHARE_IMAGE_DATA* input, const int &totalNum, 
 
 **参数说明：**
 
-- **imgData::_SHARE_IMAGE_DATA* input：input表示输入的一组图片的指针，用于后续推理。
-- **const int &totalNum：表示图片的数量。
-- **imgData::iDEFECT **result：存放检测结果。第一维表示每张图片的索引，第二维表示每张图片的检测框。
-- **bool isSynchronized = true：基于CudaStream的同步推断，异步推断尚未实现。
-- **返回类型：bool：如果检测成功，返回true，否则返回false。
+- imgData::_SHARE_IMAGE_DATA* input：input表示输入的一组图片的指针，用于后续推理。
+- const int &totalNum：表示图片的数量。
+- imgData::iDEFECT **result：存放检测结果。第一维表示每张图片的索引，第二维表示每张图片的检测框。
+- bool isSynchronized = true：基于CudaStream的同步推断，异步推断尚未实现。
+- 返回类型：bool：如果检测成功，返回True，否则返回False。
 
 ## 3、环境配置
 
