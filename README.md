@@ -65,7 +65,7 @@ static bool doInference(imgData::_SHARE_IMAGE_DATA* input, const int &totalNum, 
 
 ## 3、环境配置
 
-**硬件环境：**GeForce RTX 3070 * 2
+**硬件环境：GeForce RTX 3070 * 2 **
 
 **软件环境：**
 
