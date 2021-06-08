@@ -63,6 +63,7 @@ static bool doInference(imgData::_SHARE_IMAGE_DATA* input, const int &totalNum, 
 - bool isSynchronized = true：基于CudaStream的同步推断，异步推断尚未实现。
 - 返回类型：bool：如果检测成功，返回True，否则返回False。
 
+**以上结构体均在struct.h中定义，用户可根据自己的需求进行修改。**
 ## 3、环境配置
 
 **硬件环境：** 
