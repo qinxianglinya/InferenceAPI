@@ -8,7 +8,7 @@
 
 本框架提供**两个统一的API供外部调用**，API内部根据模型名称，自动调用对应的算法进行检测。用户如果需要集成自定义算法，根据框架内的集成规则，便可非常简单地将自定义算法集成进去，且对外的调用接口保持不变。
 
-**该框架与modelTranslation软件配合使用**，modelTranslation软件的地址：。
+**该框架与modelTranslation软件配合使用**，modelTranslation软件的地址：https://github.com/qinxianglinya/modelTranslation。
 
 modelTranslation软件用于将上述提到的三种目标检测模型转换为TensorRT engine，并反序列化至本地。本框架根据TensorRT engine，进行深度学习推理。
 
